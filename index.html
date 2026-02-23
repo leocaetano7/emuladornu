@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nubank Simulator 2026 - Treinamento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="iphone">
+        <div class="screen">
+            
+            <!-- TELA HOME -->
+            <div id="home" class="page active">
+                <header class="nu-header">
+                    <div class="top-row">
+                        <div class="profile-circle">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z""")/>></svg>
+                    </div>
+                        <div class="actions">
+                            <!-- OLHO VISIBILIDADE -->
+                            <span onclick="toggleSaldo()" style="cursor:pointer">
+                                <svg id="eye-icon" width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z""")/>></svg>
+                            </span>
+                            <!-- INTERROGAÇÃO -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z""")/>></svg>
+
+                            <!-- ICONE CENTRAL DE SEGURANÇA (O DA IMAGEM) -->
+                            <span onclick="irPara('ajustes-seguranca')" style="cursor:pointer">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+                            </span>
+                        </div>
+                    </div>
+                    <p class="greeting">Olá, Gabriela</p>
+                </header>
+
+                <div class="content-scroll">
+                    <!-- Conta -->
+                    <div class="nu-card clickable" onclick="irPara('extrato')">
+                        <div class="card-title">
+                            <span>Conta</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="#999"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z""")/>></svg>
+                        </div>
+                        <div class="nu-balance" id="saldo-home">R$ 2.450,60</div>
+                    </div>
+
+                    <!-- Atalhos -->
+                    <div class="shortcuts-container">
+                        <div class="shortcut-item" onclick="irPara('pix')">
+                            <div class="icon-bg"><svg width="28" height="28" viewBox="0 0 24 24" fill="black"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z""")/>></svg></div>
+                            <span>Área Pix</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <div class="icon-bg"><svg width="28" height="28" viewBox="0 0 24 24" fill="black"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zM7 3h10v14H7V3z""")/>></svg></div>
+                            <span>Pagar</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <div class="icon-bg"><svg width="28" height="28" viewBox="0 0 24 24" fill="black"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z""")/>></svg></div>
+                            <span>Transferir</span>
+                        </div>
+                    </div>
+
+                    <!-- Cartão de Crédito -->
+                    <div class="nu-card">
+                        <div class="card-title"><span>Cartão de Crédito</span></div>
+                        <p style="color: #666; font-size: 14px;">Fatura atual</p>
+                        <div class="nu-balance" style="color: #00A6D0;">R$ 850,00</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TELA AJUSTES DE SEGURANÇA -->
+            <div id="ajustes-seguranca" class="page">
+                <header class="nu-header sub-header">
+                    <button class="back-btn" onclick="irPara('home')">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z""")/>></svg>
+                    </button>
+                    <h3>Segurança</h3>
+                </header>
+                <div class="page-content">
+                    <h4 style="margin: 25px 0 15px;">Central de Proteção</h4>
+                    <div class="nu-option clickable" onclick="alert('Indo para Modo Rua...')">
+                        <strong>Modo Rua</strong>
+                        <p>Proteja seu saldo em caso de roubo</p>
+                    </div>
+                    <div class="nu-option clickable" onclick="irPara('seguranca-cartao')">
+                        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                            <div>
+                                <strong>Segurança do cartão</strong>
+                                <p>Gerencie senhas e bloqueios</p>
+                            </div>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="#820AD1"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z""")/>></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TELA SEGURANÇA DO CARTÃO (SENHA) -->
+            <div id="seguranca-cartao" class="page">
+                <header class="nu-header sub-header">
+                    <button class="back-btn" onclick="irPara('ajustes-seguranca')">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z""")/>></svg>
+                    </button>
+                    <h3>Segurança do cartão</h3>
+                </header>
+                <div class="page-content">
+                    <h4 style="margin: 25px 0 15px;">Configurações</h4>
+                    <div class="nu-option clickable" onclick="revelarSenha()" style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <strong>Consultar senha de 4 dígitos</strong>
+                            <p>Senha do cartão físico e virtual</p>
+                        </div>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#820AD1"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z""")/>></svg>
+                    </div>
+                    <div id="box-senha" class="password-box">
+                        <p>Sua senha de 4 dígitos é:</p>
+                        <div class="password-text">1 2 3 4</div>
+                        <p style="font-size: 11px; color: #666; margin-top: 15px;">Esta senha sumirá em 10 segundos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TELA EXTRATO -->
+            <div id="extrato" class="page">
+                <header class="nu-header sub-header">
+                    <button class="back-btn" onclick="irPara('home')">←</button>
+                    <h3>Conta</h3>
+                </header>
+                <div class="page-content">
+                    <p style="color: #666; margin-top: 20px;">Saldo disponível</p>
+                    <div class="nu-balance">R$ 2.450,60</div>
+                    <h4 style="margin-top: 30px;">Histórico</h4>
+                    <div class="history-item">
+                        <div><strong>Pix enviado</strong><p>Ontem</p></div>
+                        <strong>- R$ 50,00</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TELA ÁREA PIX -->
+            <div id="pix" class="page">
+                <header class="nu-header sub-header">
+                    <button class="back-btn" onclick="irPara('home')">←</button>
+                    <h3>Área Pix</h3>
+                </header>
+                <div class="page-content">
+                    <h4 style="margin-top: 25px;">Envie e receba</h4>
+                    <div class="nu-option">Transferir</div>
+                    <div class="nu-option">Copiar e Colar</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
